@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="224px" height="46px" viewBox="0 0 224 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Logo/InstaSwap</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Logo/InstaSwap" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="44">
+        <text id="Swap" font-family="Helvetica" font-weight="normal" letter-spacing="0.00283407862" fill="#848E9C">
+            <tspan x="105" y="34">Swap</tspan>
+        </text>
+        <text id="Insta" font-family="Helvetica-Bold, Helvetica" font-weight="bold" letter-spacing="0.00283407979" fill="#33CCFF">
+            <tspan x="0" y="34">Insta</tspan>
+        </text>
+    </g>
+</svg>

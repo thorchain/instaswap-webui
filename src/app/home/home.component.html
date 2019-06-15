@@ -1,113 +1,229 @@
 <!-- Main container -->
 <main class="main-content">
-<ngb-alert *ngIf="successMessage" type="warning" style="text-right" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
+  <!-- <ngb-alert *ngIf="successMessage" type="warning" style="text-right" (close)="successMessage = null">{{ successMessage }}</ngb-alert> -->
   <section class="section bg-lgrey my-30 py-30 px-30"  id="cards">
 
-    <div class="bg-white">
-      <img src="assets/img/media/canyadao.svg" width="auto" alt="logo">
-      <div style="padding-top:20px"></div>
-      <h2 class="text-center">CanYaDAO</h2>
-      <p class="text-center">A GLOBAL ORGANISATION FOR THE CANYA ECOSYSTEM</p>
-      <p class="text-center">Join the CanYa DAO today to help govern and fund the thriving CanYa ecosystem.</p>
-      <p class="text-center">DAO Members complete tasks for autonomous payments, enjoy perks and keep the CanYa DAO Fund prosperous.</p>
-      <p class="text-primary text-center" style="font-size:2.25rem">$USD {{ convertToLocaleString(daoFund) }}</p>
-      <p class="fw-300 text-center" style="font-size:1.25rem">(Current Fund Size)</p>
-      <div style="padding-top:20px"></div>
-    </div>
 
-    <div class="container" style="padding-top:60px">
-      <div class="row gap-y  bg-lgrey">
-        <div class="col-12 col-md-6 col-lg-6">
-          <div class="card text-center card-bordered card-hover-shadow">
-            <div class="card-body">
-              <h4 class="card-title" style="font-size:2.25rem">
-                <a href="#" target="_blank">{{getName(0) | uppercase }}</a>
-              </h4>
-              <a *ngFor="let perk of perks0; let i = index">
-                <p>{{perk}}</p>
-              </a>
-              <p class="text-primary h-40 mt-20" style="font-size:2.25rem">{{ getStake(0) | number:0}} CAN</p>
-              <p class="fw-300 h-25 mb-40" style="font-size:1.25rem">Stake Required</p>
-              <p class="card-text"><small class="text-muted">Leave any time</small></p>
+    <div class="row">
 
-              <app-homemodal [id]="0"></app-homemodal>
-
+      <div class="col-3">
+        <div class="bg-white">
+          <div style="padding-top:20px"></div>
+          <div class="row">
+            <div class="col">
+              <h4 class="text-left px-10 py-0 my-0">  WALLET</h4>
+              <hr class="py-0 my-0">
             </div>
           </div>
-        </div>
 
-        <div class="col-12 col-md-6 col-lg-6">
-          <div class="card text-center card-bordered card-hover-shadow">
-            <div class="card-body">
-              <h4 class="card-title" style="font-size:2.25rem">
-                <a href="#" target="_blank">{{getName(1) | uppercase}}</a>
-              </h4>
-              <a *ngFor="let perk of perks1; let i = index">
-                <p>{{perk}}</p>
-              </a>
+          <p class="text-left px-10 py-10 my-10">SELECT TOKEN TO SWAP</p>
 
-              <p class="text-primary h-40 mt-20" style="font-size:2.25rem">{{ getStake(1) | number:0}} CAN</p>
-              <p class="fw-300 h-25 mb-40" style="font-size:1.25rem">Stake Required</p>
-              <p class="card-text"><small class="text-muted">Minimum of {{getPeriod(1)}} days since joining</small></p>
-
-              <app-homemodal  [id]="1"></app-homemodal>
-
+          <div class="row mx-0 py-0" style="background-color:#E7F9FF">
+            <div class="col-3">
+              <img class="logo-default" src="assets/img/atom.svg"  width="auto" height="80px" alt="logo">
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="col">
+                  <h6> Atom </h6>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span>ATOM </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <span> 23 </span>
             </div>
           </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-6">
-          <div class="card text-center card-bordered card-hover-shadow">
-            <div class="card-body">
-              <h4 class="card-title" style="font-size:2.25rem">
-                <a href="#" target="_blank">{{getName(2) | uppercase }}</a>
-              </h4>
-
-              <a *ngFor="let perk of perks2; let i = index">
-                <p>{{perk}}</p>
-              </a>
-
-              <p class="text-primary h-40 mt-20" style="font-size:2.25rem">{{ getStake(2) | number:0}} CAN</p>
-              <p class="fw-300 h-25 mb-40" style="font-size:1.25rem">Stake Required</p>
-              <p class="card-text"><small class="text-muted">Minimum of {{getPeriod(2)}} days since joining</small></p>
-
-
-              <app-homemodal  [id]="2"></app-homemodal>
-
-
+          <div class="row mx-0 py-0">
+            <div class="col-3">
+              <img class="logo-default" src="assets/img/btc.svg"  width="auto" height="80px" alt="logo">
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="col">
+                  <h6> Bitcoin </h6>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span>BTC </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <span> 0.01 </span>
             </div>
           </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-6">
-          <div class="card text-center card-bordered card-hover-shadow">
-            <div class="card-body">
-              <h4 class="card-title" style="font-size:2.25rem">
-                <a href="#" target="_blank">{{getName(3) | uppercase }}</a>
-              </h4>
-
-              <a *ngFor="let perk of perks3; let i = index">
-                <p>{{perk}}</p>
-              </a>
-
-              <p class="text-primary h-40 mt-20" style="font-size:2.25rem">{{ getStake(3) | number:0}} CAN</p>
-              <p class="fw-300 h-25 mb-40" style="font-size:1.25rem">Stake Required</p>
-              <p class="card-text"><small class="text-muted">Minimum of {{getPeriod(3)}} days since joining</small></p>
-
-
-              <app-homemodal  [id]="3"></app-homemodal>
-
-
+          <div class="row mx-0 py-0">
+            <div class="col-3">
+              <img class="logo-default" src="assets/img/eth.svg"  width="auto" height="80px" alt="logo">
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="col">
+                  <h6> Bitcoin </h6>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span>BTC </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <span> 0.01 </span>
             </div>
           </div>
+
+          <div style="padding-top:20px"></div>
         </div>
-
-
       </div>
-      <br><br>
+
+      <div class="col-9">
+        <div class="bg-white">
+          <div style="padding-top:20px"></div>
+          <div class="row">
+            <div class="col">
+              <h4 class="text-left px-10 py-0 my-0">SWAP</h4>
+              <hr class="py-0 my-0">
+            </div>
+          </div>
+
+          <div class="row mb-20">
+            <div class="col-8">
+              <div style="padding-top:20px"></div>
+              <div class="row">
+                <div class="col-1">
+
+                </div>
+                <div class="col-5">
+                  <button class="btn btn-primary btn-lg btn-outline btn-block" id="wallet-btn">SWAP</button>
+                </div>
+                <div class="col-5">
+                  <button class="btn btn-secondary btn-lg btn-outline btn-block" id="wallet-btn">SWAP & SEND</button>
+                </div>
+                <div class="col-1">
+
+                </div>
+              </div>
+              <div style="padding-top:20px"></div>
+              <div class="row mx-30">
+                <div class="col">
+                  <p>You are swapping</p>
+                  <div class="container">
+                    <div class="shadow bg-grey rounded border">
+                      <div class="row py-10">
+                        <div class="col-3 text-center">
+                          <span>logo</span>
+                        </div>
+                        <div class="col-9 text-left py-0 my-0">
+                          <p class="py-0 my-0">ATOM</p>
+                          <p class="py-0 my-0">1.23</p>
+                          <hr class="py-0 my-0">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <div class="col">
+                <p>You will receive</p>
+                <div class="container">
+                  <div class="shadow bg-grey rounded border">
+                    <div class="row text-right">
+                      <div class="col">
+                        <br><br><br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br><br><br>
+            <div class="row text-center">
+              <div class="col">
+                <button class="btn btn-primary btn-lg" id="wallet-btn">SWAP</button>
+              </div>
+
+            </div>
+
+            <br><br>
+            </div>
+
+            <div class="col-4 border-left" style="padding-left:0">
+              <p class="text-left px-10 py-10 my-10">SELECT TOKEN TO RECEIVE</p>
+
+
+            <div class="row mx-0 py-0" style="background-color:#E7F9FF">
+              <div class="col-3">
+                <span> logo </span>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <div class="col">
+                    <h6> Atom </h6>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <span>ATOM </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3">
+                <span> 23 </span>
+              </div>
+            </div>
+            <div class="row mx-0 py-0">
+              <div class="col-3">
+                <span> logo </span>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <div class="col">
+                    <h6> Bitcoin </h6>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <span>BTC </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3">
+                <span> 0.01 </span>
+              </div>
+            </div>
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+        <!-- <div style="padding-top:20px"></div>
+        <h2 class="text-center">Wallet</h2>
+        <p class="text-center">A GLOBAL ORGANISATION FOR THE CANYA ECOSYSTEM</p>
+        <p class="text-center">Join the CanYa DAO today to help govern and fund the thriving CanYa ecosystem.</p>
+        <p class="text-center">DAO Members complete tasks for autonomous payments, enjoy perks and keep the CanYa DAO Fund prosperous.</p>
+        <p class="text-primary text-center" style="font-size:2.25rem">$USD {{ convertToLocaleString(daoFund) }}</p>
+        <p class="fw-300 text-center" style="font-size:1.25rem">(Current Fund Size)</p>
+        <div style="padding-top:20px"></div> -->
+      </div>
     </div>
 
-  </section>
+  </div>
+
+
+
+
+</section>
 
 
 </main>
