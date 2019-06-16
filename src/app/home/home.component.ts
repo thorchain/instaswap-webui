@@ -23,45 +23,10 @@ import { DATASTAKES } from '../dataStakes';
 
 export class HomeComponent implements OnInit, AfterViewInit {
 
-  public balAtom = 230;
-  public balBtc = 0.1;
-  public balEth = 23;
-
-  public priceAtom = 5;
-
-  public poolBtc = 0.5;
-  public btcAtom = 800;
-  public poolEth = 230;
-  public ethAtom = 11000;
-
-
-  public priceBtc = this.btcAtom / this.poolBtc;
-  public priceEth = this.ethAtom / this.poolEth;
-
-  public asset="ATOM";
-  public name="Atom";
-  public amtSwap = this.balAtom;
-
-  public boolSwap = true;
-  public boolSend = false;
-
-  public walletBool;
-  submitted = false;
-  wallet=true;
-  swap=true;
-  stakeBool=false;
-
-  public output;
-  public outputAsset = "BTC";
-  public outputName = "Bitcoin";
-  public outputPrice;
-
   public tokens = DATATOKEN;
   public selectedToken: Token;
   public stakes = DATASTAKES;
   public selectedStake: Token;
-
-  assetPrice = {atom: 5, eth: 250, btc: 8000}
 
   tokenArray = [
     {bal: 230, name: 'Atom', asset: "ATOM"},
@@ -70,23 +35,54 @@ export class HomeComponent implements OnInit, AfterViewInit {
     "TOKEN"
   ];
 
+  // tokenArray = [230, 0.1, 23];
+
   stakeArray = [
     {name: 'Atom', asset: "ATOM"},
-    {bal: 0.05, atom: 500, name: 'Bitcoin', asset: "BTC"},
-    {bal: 12, atom: 800, name: 'Ether', asset: "ETH"},
+    {bal: 1, atom: 1600, name: 'Bitcoin', asset: "BTC"},
+    {bal: 10, atom: 460, name: 'Ether', asset: "ETH"},
     "STAKE"
   ];
 
-  public stake = "BTC";
+  poolArray = [
+    {name: 'Atom', asset: "ATOM"},
+    {bal: 2, atom: 3200, name: 'Bitcoin', asset: "BTC", volume: 56239, price: 8034, xprice: 8412},
+    {bal: 40, atom: 2000, name: 'Ether', asset: "ETH", volume: 34456, price: 251, xprice: 263},
+  ];
 
+  assetPrice = {atom: 5, eth: 250, btc: 8000};
+  dollarArray = [5, 8000, 250];  //USD price
+  priceArray = [1, 1600, 50];   //ATOM price
+
+  public boolSwap = true;
+  public boolSend = false;
+
+  public walletBool = false;
+  submitted = false;
+  wallet=true;
+  swap=false;
+  stakeBool=false;
+  staked = false;
+
+  public output;
+  public outputInt;
+  public outputAsset = "BTC";
+  public outputName = "Bitcoin";
+  public outputPrice;
+  public outputSlip;
+
+  // public priceBtc = this.btcAtom / this.poolArray[];
+  // public priceEth = this.ethAtom / this.poolEth;
+
+  public asset="ATOM";
+  public name="Atom";
+  public amtSwap = 0;
+  public amtStake = 0;
+
+  public stake = "BTC";
 
   public assetArray = this.tokenArray;
 
-  poolArray = [
-    {name: 'Atom', asset: "ATOM"},
-    {bal: 1, atom: 4000, name: 'Bitcoin', asset: "BTC", volume: 56239, price: 8034, xprice: 8412},
-    {bal: 230, atom: 8000, name: 'Ether', asset: "ETH", volume: 34456, price: 251, xprice: 263},
-  ];
   public poolAsset="BTC";
   public baseAsset=0;
   public pairAsset=1;
@@ -127,6 +123,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
 
+      this.amtSwap = this.tokenArray[0];
       this.walletBool = this.walletService.walletBool;
 
   //     setTimeout( () => {
@@ -156,7 +153,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 }
 
 ngAfterViewInit(){
-  this.walletBool = this.walletService.walletBool;
 }
 
 getWalletBool(){
@@ -209,19 +205,28 @@ selectAtm(){
   this.swap=true;
   this.asset="ATOM";
   this.name="Atom";
-  this.amtSwap=this.balAtom;
+  this.amtSwap=this.tokenArray[0].bal;
+  this.baseAsset=0;
+  this.pairAsset=1;
+  this.setBtc()
 }
 selectBtc(){
   this.swap=true;
   this.asset="BTC";
   this.name = "Bitcoin";
-  this.amtSwap=this.balBtc;
+  this.amtSwap=this.tokenArray[1].bal;
+  this.baseAsset=1;
+  this.pairAsset=0;
+  this.setAtm();
 }
 selectEth(){
   this.swap=true;
   this.asset="ETH";
   this.name="Ether";
-  this.amtSwap=this.balEth;
+  this.amtSwap=this.tokenArray[2].bal;
+  this.baseAsset=2;
+  this.pairAsset=0;
+  this.setBtc();
 }
 
 // selectStakeBtc(){
@@ -243,54 +248,129 @@ swapBoolSend(){
 }
 
 setAmtSwap(){
-  // amtSwap =
+  this.amtSwap = this.tokenArray[this.baseAsset].bal;
+  this.amtStake = this.tokenArray[this.pairAsset].bal;
 }
 
 setAtm(){
   this.outputAsset="ATOM";
   this.outputName="Atom";
+  this.pairAsset=0;
 }
 
 setBtc(){
   this.outputAsset="BTC";
   this.outputName="Bitcoin";
+  this.pairAsset=1;
 }
 
 setEth(){
   this.outputAsset="ETH";
   this.outputName="Ether";
+  this.pairAsset=2;
 }
 
-set25(){
-  this.amtSwap = 0.25  * this.balAtom;
+set25(id){
+  this.amtSwap = 0.25  * this.tokenArray[this.baseAsset].bal;
+  this.amtStake = 0.25  * this.tokenArray[this.pairAsset].bal;
 }
-set50(){
-  this.amtSwap = 0.50  * this.balAtom;
+set50(id){
+  this.amtSwap = 0.50  * this.tokenArray[this.baseAsset].bal;
+  this.amtStake = 0.25  * this.tokenArray[this.pairAsset].bal;
+
 }
-set75(){
-  this.amtSwap = 0.75  * this.balAtom;
+set75(id){
+  this.amtSwap = 0.75  * this.tokenArray[this.baseAsset].bal;
+  this.amtStake = 0.25  * this.tokenArray[this.pairAsset].bal;
+
 }
-set100(){
-  this.amtSwap = 1.0  * this.balAtom;
+set100(id){
+  this.amtSwap = 1.0  * this.tokenArray[this.baseAsset].bal;
+  this.amtStake = 0.25  * this.tokenArray[this.pairAsset].bal;
+
 }
 
 getOutput(){
-  if(this.outputAsset=="BTC"){
-    this.output = (this.amtSwap * this.poolBtc) / (this.amtSwap + this.btcAtom)
-    this.outputPrice = this.output * this.priceBtc * this.priceAtom;
-  } else {
-    this.output = (this.amtSwap * this.poolEth) / (this.amtSwap + this.ethAtom)
-    this.outputPrice = this.output * this.priceEth * this.priceAtom;
+  if (this.baseAsset==0){
+    this.output = (this.amtSwap * this.poolArray[this.pairAsset].bal) / (this.amtSwap + this.poolArray[this.pairAsset].atom);
+    this.outputPrice = this.output * this.priceArray[this.pairAsset] * this.dollarArray[0];
+    this.outputSlip = this.amtSwap / (this.amtSwap + this.poolArray[this.pairAsset].atom);
+    // console.log("base", this.baseAsset);
+    // console.log("pair", this.pairAsset);
+    // console.log("x", this.amtSwap);
+    // console.log("Y", this.poolArray[this.pairAsset].bal);
+    // console.log("X", this.poolArray[this.pairAsset].atom);
+    // console.log("price", this.priceArray[this.pairAsset]);
+    // console.log("dollar", this.dollarArray[0]);
+    // console.log("y", this.output);
+    // console.log("slip", this.outputSlip);
+  } else if (!this.baseAsset==0 && this.pairAsset == 0){
+    this.output = (this.amtSwap * this.poolArray[this.baseAsset].atom) / (this.amtSwap + this.poolArray[this.baseAsset].bal);
+    this.outputPrice = this.output * this.priceArray[this.pairAsset] * this.dollarArray[0];
+    this.outputSlip = this.amtSwap / (this.amtSwap + this.poolArray[this.baseAsset].bal);
+    // console.log("base", this.baseAsset);
+    // console.log("pair", this.pairAsset);
+    // console.log("x", this.amtSwap);
+    // console.log("X", this.poolArray[this.baseAsset].bal);
+    // console.log("Y", this.poolArray[this.baseAsset].atom);
+    // console.log("price", this.priceArray[this.pairAsset]);
+    // console.log("dollar", this.dollarArray[0]);
+    // console.log("y", this.output);
+    // console.log("slip", this.outputSlip);
+  } else if (!this.baseAsset==0 && !this.pairAsset == 0){
+    this.outputInt = (this.amtSwap * this.poolArray[this.baseAsset].atom) / (this.amtSwap + this.poolArray[this.baseAsset].bal);
+    this.output = (this.outputInt * this.poolArray[this.pairAsset].bal) / (this.outputInt + this.poolArray[this.pairAsset].atom);
+    this.outputPrice = this.output * this.priceArray[this.pairAsset] * this.dollarArray[0];
+    const slip = this.amtSwap / (this.amtSwap + this.poolArray[this.baseAsset].bal);
+    this.outputSlip = (this.outputInt / (this.outputInt + this.poolArray[this.pairAsset].atom)) + slip;
+
+    console.log("base", this.baseAsset);
+    console.log("pair", this.pairAsset);
+    console.log("x", this.amtSwap);
+    console.log("X", this.poolArray[this.baseAsset].bal);
+    console.log("Y", this.poolArray[this.baseAsset].atom);
+    console.log("A", this.poolArray[this.pairAsset].atom);
+    console.log("z", this.output);
+    console.log("Z", this.poolArray[this.pairAsset].bal);
+    console.log("price", this.priceArray[this.pairAsset]);
+    console.log("dollar", this.dollarArray[0]);
+    console.log("y", this.outputInt);
+    console.log("slip", this.outputSlip);
   }
+
 
   return this.output;
 }
 
-onSubmit() {
+updateWallet(){
+  // this.tokenArray[this.baseAsset].bal -= this.amtSwap;
+  // this.tokenArray[this.pairAsset].bal += this.output;
+  if (this.baseAsset==0){
+  this.tokenArray[this.baseAsset].bal -= this.amtSwap;
+  this.tokenArray[this.pairAsset].bal += this.output;
+  this.poolArray[this.pairAsset].atom += this.amtSwap;
+  this.poolArray[this.pairAsset].bal -= this.output;
+} else if (!this.baseAsset==0 && this.pairAsset == 0) {
+  this.tokenArray[this.baseAsset].bal -= this.amtSwap;
+  this.tokenArray[this.pairAsset].bal += this.output;
+  this.poolArray[this.baseAsset].bal += this.amtSwap;
+  this.poolArray[this.baseAsset].atom -= this.output;
+} else if (!this.baseAsset==0 && !this.pairAsset == 0){
+  this.tokenArray[this.baseAsset].bal -= this.amtSwap;
+  this.tokenArray[this.pairAsset].bal += this.output;
+  this.poolArray[this.pairAsset].bal += this.amtSwap;
+  this.poolArray[this.pairAsset].atom -= this.outputInt;
+  this.poolArray[this.pairAsset].atom += this.outputInt;
+  this.poolArray[this.pairAsset].bal -= this.output;
+}
+}
+
+swapAsset() {
   if (this.submitted) {
     this.submitted = false;
   } else {
     this.submitted = true;
+    this.updateWallet();
   }
 }
 
@@ -319,6 +399,20 @@ clickSellETH(){
   this.setAtm();
 }
 
+
+stakeAsset() {
+  this.stakeBool=true;
+  if (this.staked) {
+    this.staked = false;
+  } else {
+    this.staked = true;
+    this.tokenArray[this.baseAsset].bal -= this.amtSwap;
+    this.tokenArray[this.pairAsset].bal -= this.amtStake;
+    // this.updateWallet();
+  }
+
+  console.log(this.staked)
+}
 
 
 // open(content) {

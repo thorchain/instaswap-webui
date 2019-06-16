@@ -30,74 +30,74 @@
           <div class="" [hidden]="!wallet">
 
             <div [hidden]="!walletBool">
-              <p class="text-left px-10 py-10 my-10">SELECT {{assetArray[3]}}</p>
+              <p class="text-left px-10 py-10 my-10">SELECT {{tokenArray[3]}}</p>
 
               <div class="row mx-0 py-0"
               [ngStyle]="{'background-color':asset === 'ATOM' ? '#E7F9FF' : '#FFFFFF' }"
                (click)="selectAtm()">
                 <div class="col-3">
-                  <img class="logo-default" src="assets/img/{{assetArray[0].asset}}.svg"  width="auto" height="80px" alt="logo">
+                  <img class="logo-default" src="assets/img/{{tokenArray[0].asset}}.svg"  width="auto" height="80px" alt="logo">
                 </div>
-                <div class="col-5 my-0 px-0">
+                <div class="col-4 my-0 px-0">
                   <div class="row my-0 px-0">
                     <div class="col" style="padding-top:15px">
-                      <h6 class="my-0" style="font-weight:bold">{{assetArray[0].name}}</h6>
+                      <h6 class="my-0" style="font-weight:bold">{{tokenArray[0].name}}</h6>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col">
-                      <span>{{assetArray[0].asset}}</span>
+                      <span>{{tokenArray[0].asset}}</span>
                     </div>
                   </div>
                 </div>
-                <div class="col-4 px-0" style="padding-top:5px">
-                  <p class="fw-300 text-left my-0 py-0" style="font-size:2.25rem">{{assetArray[0].bal}}</p>
-                  <p class="text-muted my-0 py-0">$USD {{ (assetArray[0].bal*priceAtom) | number : '1.1-2'}}</p>
+                <div class="col-5 px-0" style="padding-top:5px">
+                  <p class="fw-300 text-left my-0 py-0" style="font-size:2.25rem">{{tokenArray[0].bal | number : '1.1-2'}}</p>
+                  <p class="text-muted my-0 py-0">$USD {{ (tokenArray[0].bal*priceArray[0] * dollarArray[0]) | number : '1.1-2'}}</p>
                 </div>
               </div>
 
               <div class="row mx-0 py-0" [ngStyle]="{'background-color':asset === 'BTC' ? '#E7F9FF' : '#FFFFFF' }"
                (click)="selectBtc()">
                 <div class="col-3">
-                  <img class="logo-default" src="assets/img/{{assetArray[1].asset}}.svg"  width="auto" height="80px" alt="logo">
+                  <img class="logo-default" src="assets/img/{{tokenArray[1].asset}}.svg"  width="auto" height="80px" alt="logo">
                 </div>
-                <div class="col-5 my-0 px-0">
+                <div class="col-4 my-0 px-0">
                   <div class="row my-0">
                     <div class="col" style="padding-top:15px">
-                      <h6 class="my-0" style="font-weight:bold">{{assetArray[1].name}}</h6>
+                      <h6 class="my-0" style="font-weight:bold">{{tokenArray[1].name}}</h6>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col">
-                      <span>{{assetArray[1].asset}}</span>
+                      <span>{{tokenArray[1].asset}}</span>
                     </div>
                   </div>
                 </div>
-                <div class="col-4 px-0" style="padding-top:5px">
-                  <p class="fw-300 text-left my-0 py-0" style="font-size:2.25rem">{{assetArray[1].bal}}</p>
-                  <p class="text-muted my-0 py-0">$USD {{ (assetArray[1].bal * priceBtc * priceAtom) | number : '1.1-2'}}</p>
+                <div class="col-5 px-0" style="padding-top:5px">
+                  <p class="fw-300 text-left my-0 py-0" style="font-size:2.25rem">{{tokenArray[1].bal | number : '1.1-2'}}</p>
+                  <p class="text-muted my-0 py-0">$USD {{ (tokenArray[1].bal * priceArray[1] * dollarArray[0]) | number : '1.1-2'}}</p>
                 </div>
               </div>
               <div class="row mx-0 py-0" [ngStyle]="{'background-color':asset === 'ETH' ? '#E7F9FF' : '#FFFFFF' }"
                (click)="selectEth()">
                 <div class="col-3">
-                  <img class="logo-default" src="assets/img/{{assetArray[2].asset}}.svg"  width="auto" height="80px" alt="logo">
+                  <img class="logo-default" src="assets/img/{{tokenArray[2].asset}}.svg"  width="auto" height="80px" alt="logo">
                 </div>
-                <div class="col-5 px-0 my-0">
+                <div class="col-4 px-0 my-0">
                   <div class="row my-0">
                     <div class="col" style="padding-top:15px">
-                      <h6 class="my-0" style="font-weight:bold">{{assetArray[2].name}}</h6>
+                      <h6 class="my-0" style="font-weight:bold">{{tokenArray[2].name}}</h6>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col">
-                      <span>{{assetArray[2].asset}}</span>
+                      <span>{{tokenArray[2].asset}}</span>
                     </div>
                   </div>
                 </div>
-                <div class="col-4 px-0" style="padding-top:5px">
-                  <p class="fw-300 text-left my-0 py-0" style="font-size:2.25rem">{{assetArray[2].bal}}</p>
-                  <p class="text-muted my-0 py-0">$USD {{ (assetArray[2].bal * priceEth * priceAtom) | number : '1.1-2'}}</p>
+                <div class="col-5 px-0" style="padding-top:5px">
+                  <p class="fw-300 text-left my-0 py-0" style="font-size:2.25rem">{{tokenArray[2].bal | number : '1.1-2'}}</p>
+                  <p class="text-muted my-0 py-0">$USD {{ (tokenArray[2].bal * priceArray[2] * dollarArray[0]) | number : '1.1-2'}}</p>
                 </div>
               </div>
               <hr>
@@ -138,8 +138,8 @@
             [ngStyle]="{'background-color':stake === 'BTC' ? '#E7F9FF' : '#FFFFFF' }"
              (click)="stakeBtc()">
               <div class="col-4">
-                <img class="logo-default under" src="assets/img/{{assetArray[0].asset}}.svg"  width="auto" height="50px" alt="logo">
-                <img class="logo-default over" src="assets/img/{{assetArray[1].asset}}.svg"  width="auto" height="50px" alt="logo">
+                <img class="logo-default under" src="assets/img/{{tokenArray[0].asset}}.svg"  width="auto" height="50px" alt="logo">
+                <img class="logo-default over" src="assets/img/{{tokenArray[1].asset}}.svg"  width="auto" height="50px" alt="logo">
               </div>
               <div class="col-4 my-0 px-0">
                 <div class="row my-0 px-0">
@@ -155,7 +155,7 @@
               </div>
               <div class="col-4 px-0" style="padding-top:5px">
                 <br>
-                <p class="text-muted my-0 py-0">$USD {{ ((stakeArray[1].atom * priceAtom) + (stakeArray[1].bal * priceBtc * priceAtom)) | number : '1.1-2'}}</p>
+                <p class="text-muted my-0 py-0">$USD {{ ((stakeArray[1].atom * dollarArray[0]) + (stakeArray[1].bal * priceArray[1] * dollarArray[0])) | number : '1.1-2'}}</p>
                 <br>
               </div>
             </div>
@@ -164,8 +164,8 @@
             [ngStyle]="{'background-color':stake === 'ETH' ? '#E7F9FF' : '#FFFFFF' }"
              (click)="stakeEth()">
               <div class="col-4">
-                <img class="logo-default under" src="assets/img/{{assetArray[0].asset}}.svg"  width="auto" height="50px" alt="logo">
-                <img class="logo-default over" src="assets/img/{{assetArray[2].asset}}.svg"  width="auto" height="50px" alt="logo">
+                <img class="logo-default under" src="assets/img/{{tokenArray[0].asset}}.svg"  width="auto" height="50px" alt="logo">
+                <img class="logo-default over" src="assets/img/{{tokenArray[2].asset}}.svg"  width="auto" height="50px" alt="logo">
               </div>
               <div class="col-4 my-0 px-0">
                 <div class="row my-0 px-0">
@@ -181,42 +181,16 @@
               </div>
               <div class="col-4 px-0" style="padding-top:5px">
                 <br>
-                <p class="text-muted my-0 py-0">$USD {{ ((stakeArray[2].atom * priceAtom) + (stakeArray[2].bal * priceEth * priceAtom)) | number : '1.1-2'}}</p>
+                <p class="text-muted my-0 py-0">$USD {{ ((stakeArray[2].atom * dollarArray[0]) + (stakeArray[2].bal * priceArray[2] * dollarArray[0])) | number : '1.1-2'}}</p>
                 <br>
               </div>
             </div>
-
-
-            <!-- <tbody>
-              <tr *ngFor="let token of stakes" [ngStyle]="{'background-color':asset === 'ETH' ? '#E7F9FF' : '#FFFFFF' }"
-               (click)="selectEth()">
-                  <div class="col-3">
-                    <img class="logo-default" src="assets/img/{{token.asset}}.svg"  width="auto" height="80px" alt="logo">
-                  </div>
-                  <div class="col-5 px-0 my-0">
-                    <div class="row my-0">
-                      <div class="col" style="padding-top:15px">
-                        <h6 class="my-0">{{token.name}}</h6>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <span>{{token.asset}}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-4 px-0" style="padding-top:5px">
-                    <p class="fw-300 text-left my-0 py-0" style="font-size:2.25rem">{{token.bal}}</p>
-                    <p class="text-muted my-0 py-0">$USD {{token.bal*token.price*priceAtom | number : '1.1-2'}}</p>
-                  </div>
-              </tr>
-            </tbody> -->
-
           </div>
 
-<div style="padding-top:20px"></div>
+        <div style="padding-top:20px"></div>
 
         </div>
+
       </div>
 
       <div class="col-9 px-0 mx-0">
@@ -299,16 +273,16 @@
                   </div>
                   <div class="row text-center py-10 mx-0">
                     <div class="col mx-0 px-5">
-                      <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set25()" type="button" name="button">25%</button>
+                      <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set25(baseAsset)" type="button" name="button">25%</button>
                     </div>
                     <div class="col mx-0 px-5">
-                      <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set50()" type="button" name="button">50%</button>
+                      <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set50(baseAsset)" type="button" name="button">50%</button>
                     </div>
                     <div class="col mx-0 px-5">
-                      <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set75()" type="button" name="button">75%</button>
+                      <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set75(baseAsset)" type="button" name="button">75%</button>
                     </div>
                     <div class="col mx-0 px-5">
-                      <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set100()" type="button" name="button">ALL</button>
+                      <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set100(baseAsset)" type="button" name="button">ALL</button>
                     </div>
 
                   </div>
@@ -323,10 +297,10 @@
                         </div>
                         <div class="col text-left px-0 py-0 my-0" style="margin-right:5px">
                           <label class="my-0 py-0" for="">{{outputAsset}}</label>
-                          <p class="fw-300 text-left my-0 py-0" style="font-size:2.25rem">{{getOutput() | number : '1.2-2'}}</p>
+                          <p class="fw-300 text-left my-0 py-0" style="font-size:2.25rem">{{getOutput() | number : '1.2-4'}}</p>
                           <hr class="my-0 py-0">
                           <p class="text-muted my-0 py-0">$USD {{outputPrice | number : '1.2-2'}}</p>
-                          <br>
+                          <p class="text-muted my-0 py-0">Slip: {{outputSlip | percent}}</p>
                         </div>
                       </div>
                     </div>
@@ -336,7 +310,7 @@
               <br>
               <div class="row text-center">
                 <div class="col">
-                  <button class="btn btn-primary btn-lg" (click)="onSubmit()" id="wallet-btn">SWAP</button>
+                  <button class="btn btn-primary btn-lg" (click)="swapAsset()" id="wallet-btn">SWAP</button>
                 </div>
 
               </div>
@@ -366,14 +340,14 @@
                   </div>
                 </div>
                 <div class="col-3" style="padding-top:5px">
-                  <p class="fw-100 text-left my-0 py-0 text-muted" style="font-size:1rem">{{balBtc * priceBtc}} ATOM</p>
+                  <!-- <p class="fw-100 text-left my-0 py-0 text-muted" style="font-size:1rem">{{tokenArray[baseAsset] * priceArray[pairAsset]}} ATOM</p> -->
                 </div>
               </div>
 
               <div class="row mx-0 py-0" [ngStyle]="{'background-color':outputAsset === 'BTC' ? '#E7F9FF' : '#FFFFFF' }"
                (click)="setBtc()">
                 <div class="col-3">
-                  <img class="logo-default" src="assets/img/btc.svg"  width="auto" height="80px" alt="logo">
+                  <img class="logo-default" src="assets/img/BTC.svg"  width="auto" height="80px" alt="logo">
                 </div>
                 <div class="col-6 my-0">
                   <div class="row my-0">
@@ -388,13 +362,13 @@
                   </div>
                 </div>
                 <div class="col-3" style="padding-top:5px">
-                  <p class="fw-100 text-left my-0 py-0 text-muted" style="font-size:1rem">{{balBtc * priceBtc}} ATOM</p>
+                  <p class="fw-100 text-left my-0 py-0 text-muted" style="font-size:1rem"> </p>
                 </div>
               </div>
               <div class="row mx-0 py-0" [ngStyle]="{'background-color':outputAsset === 'ETH' ? '#E7F9FF' : '#FFFFFF' }"
                (click)="setEth()">
                 <div class="col-3">
-                  <img class="logo-default" src="assets/img/eth.svg"  width="auto" height="80px" alt="logo">
+                  <img class="logo-default" src="assets/img/ETH.svg"  width="auto" height="80px" alt="logo">
                 </div>
                 <div class="col-6 my-0">
                   <div class="row my-0">
@@ -409,7 +383,7 @@
                   </div>
                 </div>
                 <div class="col-3" style="padding-top:5px">
-                  <p class="fw-100 text-left my-0 py-0 text-muted" style="font-size:1rem">{{balEth * priceEth}} ATOM</p>
+                  <p class="fw-100 text-left my-0 py-0 text-muted" style="font-size:1rem"> </p>
                 </div>
               </div>
 
@@ -436,7 +410,7 @@
 
               <div class="row text-center py-20" style="">
                 <div class="col">
-                  <button class="btn btn-primary btn-outline btn-lg" (click)="onSubmit()" id="wallet-btn">SWAP AGAIN</button>
+                  <button class="btn btn-primary btn-outline btn-lg" (click)="swapAsset()" id="wallet-btn">SWAP AGAIN</button>
 
                 </div>
 
@@ -451,160 +425,198 @@
           </div>
         </div>
           <div [hidden]="!stakeBool">
+            <div [hidden]="staked">
+              <div class="row">
+                <div class="col mx-15">
+                  <h5>STAKE</h5>
+                  <div class="row mx-0 py-0">
+                    <div class="col-2">
+                      <img class="logo-default under" src="assets/img/{{tokenArray[baseAsset].asset}}.svg"  width="auto" height="50px" alt="logo">
+                      <img class="logo-default over" src="assets/img/{{tokenArray[pairAsset].asset}}.svg"  width="auto" height="50px" alt="logo">
+                    </div>
+                    <div class="col-2 my-0 px-0">
+                      <div class="row my-0 px-0">
+                        <div class="col" style="padding-top:15px">
+                          <h6 class="my-0" style="font-weight:bold"><span>{{stakeArray[pairAsset].asset}}</span> : <span></span><span>{{stakeArray[pairAsset].asset}}</span></h6>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <h6 class="my-0"><span>{{stakeArray[pairAsset].atom}}</span> : <span></span><span>{{stakeArray[pairAsset].bal}}</span></h6>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-2 px-0" style="padding-top:5px">
+                      <p class="text-muted my-0 py-0">Value</p>
+                      <p class="my-0 py-0">$USD {{ ((stakeArray[pairAsset].atom * dollarArray[0]) + (stakeArray[pairAsset].bal * priceArray[1] * dollarArray[0])) | number : '1.1-2'}}</p>
+                    </div>
+                    <div class="col-2 px-0" style="padding-top:5px">
+                      <p class="text-muted my-0 py-0">Fees</p>
+                      <p class="my-0 py-0">$USD 45.00</p>
+                    </div>
+                    <div class="col-2 px-0" style="padding-top:5px">
+                      <p class="text-muted my-0 py-0">Pool Share</p>
+                      <p class="my-0 py-0">{{ ((poolArray[pairAsset].atom - stakeArray[pairAsset].atom)/(poolArray[pairAsset].atom)) | percent}}</p>
+                    </div>
+                    <div class="col-2 px-0" style="padding-top:5px">
+                      <p class="text-muted my-0 py-0">Annual ROI</p>
+                      <p class="my-0 py-0">34%</p>
+                    </div>
+                  </div>
+                  <br>
+                </div>
+              </div>
+              <div class="row">
+
+              <div class="col mx-10" style="margin-left:10px margin-right:0px padding-right:0px">
+                <p>Stake {{stakeArray[baseAsset].name}}</p>
+                <div class="container px-0">
+                  <div class="shadow bg-grey rounded border">
+                    <div class="row py-5 my-0 mx-0 align-middle">
+                      <div class="col-2 text-center mx-5 px-0 align-middle" style="margin-left:10px">
+                        <img class="logo-default align-middle" src="assets/img/{{stakeArray[baseAsset].asset}}.svg"  width="auto" height="40px" alt="logo">
+                      </div>
+                      <div class="col text-left px-0 py-0 my-0" style="margin-right:5px">
+
+                        <form (ngSubmit)="setAmtSwap()" #walletForm="ngForm">
+                          <div class="form-group">
+                            <label style="font-size:1rem" >{{stakeArray[baseAsset].asset}}</label>
+                            <input type="number" class="form-control" id="amtSwapInput"
+                            required
+                            [(ngModel)]="amtSwap" name="amtSwap"
+                            #phrase="ngModel" placeholder="Enter amount">
+                            <small id="keyHelp" class="form-text text-muted">Enter amount to stake</small>
+                          </div>
+                        </form>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="row text-center py-10 mx-0">
+                <div class="col mx-0 px-5">
+                  <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set25(baseAsset)" type="button" name="button">25%</button>
+                </div>
+                <div class="col mx-0 px-5">
+                  <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set50(baseAsset)" type="button" name="button">50%</button>
+                </div>
+                <div class="col mx-0 px-5">
+                  <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set75(baseAsset)" type="button" name="button">75%</button>
+                </div>
+                <div class="col mx-0 px-5">
+                  <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set100(baseAsset)" type="button" name="button">ALL</button>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="col mx-10" style="margin-left:10px margin-right:0px padding-right:0px">
+                <p>Stake {{stakeArray[pairAsset].name}}</p>
+                <div class="container px-0">
+                  <div class="shadow bg-grey rounded border">
+                    <div class="row py-5 my-0 mx-0 align-middle">
+                      <div class="col-2 text-center mx-5 px-0 align-middle" style="margin-left:10px">
+                        <img class="logo-default align-middle" src="assets/img/{{stakeArray[pairAsset].asset}}.svg"  width="auto" height="40px" alt="logo">
+                      </div>
+                      <div class="col text-left px-0 py-0 my-0" style="margin-right:5px">
+
+                        <form (ngSubmit)="setAmtSwap()" #walletForm="ngForm">
+                          <div class="form-group">
+                            <label style="font-size:1rem" >{{stakeArray[pairAsset].asset}}</label>
+                            <input type="number" class="form-control" id="amtStakeInput"
+                            required
+                            [(ngModel)]="amtStake" name="amtStake"
+                            #phrase="ngModel" placeholder="Enter amount">
+                            <small id="keyHelp" class="form-text text-muted">Enter amount to stake</small>
+                          </div>
+                        </form>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="row text-center py-10 mx-0">
+                <div class="col mx-0 px-5">
+                  <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set25(baseAsset)" type="button" name="button">25%</button>
+                </div>
+                <div class="col mx-0 px-5">
+                  <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set50(baseAsset)" type="button" name="button">50%</button>
+                </div>
+                <div class="col mx-0 px-5">
+                  <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set75(baseAsset)" type="button" name="button">75%</button>
+                </div>
+                <div class="col mx-0 px-5">
+                  <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set100(baseAsset)" type="button" name="button">ALL</button>
+                </div>
+
+              </div>
+            </div>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <br>
+                <div class="row text-center">
+                  <div class="col">
+                    <button class="btn btn-primary btn-lg" (click)="stakeAsset()" id="wallet-btn">STAKE</button>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
             <div class="row">
               <div class="col mx-15">
-                <h5>STAKE</h5>
-                <div class="row mx-0 py-0">
-                  <div class="col-2">
-                    <img class="logo-default under" src="assets/img/{{assetArray[baseAsset].asset}}.svg"  width="auto" height="50px" alt="logo">
-                    <img class="logo-default over" src="assets/img/{{assetArray[pairAsset].asset}}.svg"  width="auto" height="50px" alt="logo">
-                  </div>
-                  <div class="col-2 my-0 px-0">
-                    <div class="row my-0 px-0">
-                      <div class="col" style="padding-top:15px">
-                        <h6 class="my-0" style="font-weight:bold"><span>{{stakeArray[pairAsset].asset}}</span> : <span></span><span>{{stakeArray[pairAsset].asset}}</span></h6>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <h6 class="my-0"><span>{{stakeArray[pairAsset].atom}}</span> : <span></span><span>{{stakeArray[pairAsset].bal}}</span></h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-2 px-0" style="padding-top:5px">
-                    <p class="text-muted my-0 py-0">Value</p>
-                    <p class="my-0 py-0">$USD {{ ((stakeArray[pairAsset].atom * priceAtom) + (stakeArray[pairAsset].bal * priceBtc * priceAtom)) | number : '1.1-2'}}</p>
-                  </div>
-                  <div class="col-2 px-0" style="padding-top:5px">
-                    <p class="text-muted my-0 py-0">Fees</p>
-                    <p class="my-0 py-0">$USD 45.00</p>
-                  </div>
-                  <div class="col-2 px-0" style="padding-top:5px">
-                    <p class="text-muted my-0 py-0">Pool Share</p>
-                    <p class="my-0 py-0">{{ ((poolArray[pairAsset].atom - stakeArray[pairAsset].atom)/(poolArray[pairAsset].atom)) | percent}}</p>
-                  </div>
-                  <div class="col-2 px-0" style="padding-top:5px">
-                    <p class="text-muted my-0 py-0">Annual ROI</p>
-                    <p class="my-0 py-0">34%</p>
+                <h5>WITHDRAW</h5>
+                <p>Use this to withdraw all of your stake in this pool, plus any earned fees.</p>
+                <br>
+                <div class="row text-center">
+                  <div class="col">
+                    <button class="btn btn-danger btn-outline btn-lg" (click)="onSubmit()" id="wallet-btn">WITHDRAW ALL</button>
                   </div>
                 </div>
                 <br>
               </div>
             </div>
-            <div class="row">
 
-            <div class="col mx-10" style="margin-left:10px margin-right:0px padding-right:0px">
-              <p>Stake {{stakeArray[baseAsset].name}}</p>
-              <div class="container px-0">
-                <div class="shadow bg-grey rounded border">
-                  <div class="row py-5 my-0 mx-0 align-middle">
-                    <div class="col-2 text-center mx-5 px-0 align-middle" style="margin-left:10px">
-                      <img class="logo-default align-middle" src="assets/img/{{stakeArray[baseAsset].asset}}.svg"  width="auto" height="40px" alt="logo">
+            </div>
+
+            <div [hidden]="!staked">
+              <div class="row mb-20">
+                <div class="col-8" style="padding-top:40px">
+                  <div class="row text-center">
+                    <div class="col">
+                      <img class="logo-default" src="assets/img/confirmation.png"  width="auto" height="80px" alt="logo">
                     </div>
-                    <div class="col text-left px-0 py-0 my-0" style="margin-right:5px">
+                  </div>
+                  <div class="row text-center mx-20">
+                    <div class="col">
+                      <br>
+                      <h6>Total Staked</h6>
+                      <span><p class="fw-300 my-0 py-0" style="font-size:2.25rem">{{amtSwap | number : '1.2-2' }}</p></span><span>{{tokenArray[baseAsset].asset}}</span>
+                      <span><p class="fw-300 my-0 py-0" style="font-size:2.25rem">{{amtStake | number : '1.2-2' }}</p></span><span>{{tokenArray[pairAsset].asset}}</span>
+                      <br>
+                    </div>
 
-                      <form (ngSubmit)="setAmtSwap()" #walletForm="ngForm">
-                        <div class="form-group">
-                          <label style="font-size:1rem" >{{stakeArray[baseAsset].asset}}</label>
-                          <input type="number" class="form-control" id="amtSwapInput"
-                          required
-                          [(ngModel)]="amtSwap" name="amtSwap"
-                          #phrase="ngModel" placeholder="Enter amount">
-                          <small id="keyHelp" class="form-text text-muted">Enter amount to stake</small>
-                        </div>
-                      </form>
+                  </div>
+
+                  <div class="row text-center py-20" style="">
+                    <div class="col">
+                      <button class="btn btn-primary btn-outline btn-lg" (click)="stakeAsset()" id="wallet-btn">STAKE AGAIN</button>
+
+                    </div>
+
                   </div>
 
                 </div>
-              </div>
-            </div>
-            <div class="row text-center py-10 mx-0">
-              <div class="col mx-0 px-5">
-                <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set25()" type="button" name="button">25%</button>
-              </div>
-              <div class="col mx-0 px-5">
-                <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set50()" type="button" name="button">50%</button>
-              </div>
-              <div class="col mx-0 px-5">
-                <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set75()" type="button" name="button">75%</button>
-              </div>
-              <div class="col mx-0 px-5">
-                <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set100()" type="button" name="button">ALL</button>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="col mx-10" style="margin-left:10px margin-right:0px padding-right:0px">
-              <p>Stake {{stakeArray[pairAsset].name}}</p>
-              <div class="container px-0">
-                <div class="shadow bg-grey rounded border">
-                  <div class="row py-5 my-0 mx-0 align-middle">
-                    <div class="col-2 text-center mx-5 px-0 align-middle" style="margin-left:10px">
-                      <img class="logo-default align-middle" src="assets/img/{{stakeArray[pairAsset].asset}}.svg"  width="auto" height="40px" alt="logo">
-                    </div>
-                    <div class="col text-left px-0 py-0 my-0" style="margin-right:5px">
-
-                      <form (ngSubmit)="setAmtSwap()" #walletForm="ngForm">
-                        <div class="form-group">
-                          <label style="font-size:1rem" >{{stakeArray[pairAsset].asset}}</label>
-                          <input type="number" class="form-control" id="amtSwapInput"
-                          required
-                          [(ngModel)]="amtSwap" name="amtSwap"
-                          #phrase="ngModel" placeholder="Enter amount">
-                          <small id="keyHelp" class="form-text text-muted">Enter amount to stake</small>
-                        </div>
-                      </form>
-                  </div>
+                <div class="col-4 border-left" style="padding-left:0">
 
                 </div>
-              </div>
-            </div>
-            <div class="row text-center py-10 mx-0">
-              <div class="col mx-0 px-5">
-                <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set25()" type="button" name="button">25%</button>
-              </div>
-              <div class="col mx-0 px-5">
-                <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set50()" type="button" name="button">50%</button>
-              </div>
-              <div class="col mx-0 px-5">
-                <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set75()" type="button" name="button">75%</button>
-              </div>
-              <div class="col mx-0 px-5">
-                <button class="btn btn-secondary btn-outline btn-sm mx-0 px-5 btn-block" (click)="set100()" type="button" name="button">ALL</button>
-              </div>
-
-            </div>
-          </div>
-          </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <br>
-              <div class="row text-center">
-                <div class="col">
-                  <button class="btn btn-primary btn-lg" (click)="onSubmit()" id="wallet-btn">STAKE</button>
-                  <hr>
                 </div>
-              </div>
             </div>
 
-          </div>
-
-          <div class="row">
-            <div class="col mx-15">
-              <h5>WITHDRAW</h5>
-              <p>Use this to withdraw all of your stake in this pool, plus any earned fees.</p>
-              <br>
-              <div class="row text-center">
-                <div class="col">
-                  <button class="btn btn-danger btn-outline btn-lg" (click)="onSubmit()" id="wallet-btn">WITHDRAW ALL</button>
-                </div>
-              </div>
-              <br>
-            </div>
-          </div>
           </div>
 
       </div>
@@ -613,21 +625,21 @@
       <div [hidden]="swap">
         <!-- <div class="row">
           <div class="col-4 mx-10 bg-white">
-            <img class="logo-default" src="assets/img/{{assetArray[0].asset}}.svg"  width="auto" height="50px" alt="logo">
+            <img class="logo-default" src="assets/img/{{tokenArray[0].asset}}.svg"  width="auto" height="50px" alt="logo">
           </div>
           <div class="col-4 mx-10 bg-white">
-            <img class="logo-default" src="assets/img/{{assetArray[1].asset}}.svg"  width="auto" height="50px" alt="logo">
+            <img class="logo-default" src="assets/img/{{tokenArray[1].asset}}.svg"  width="auto" height="50px" alt="logo">
           </div>
           <div class="col-4 mx-10 bg-whit">
-            <img class="logo-default" src="assets/img/{{assetArray[2].asset}}.svg"  width="auto" height="50px" alt="logo">
+            <img class="logo-default" src="assets/img/{{tokenArray[2].asset}}.svg"  width="auto" height="50px" alt="logo">
           </div>
 
         </div> -->
 
         <div class="row mx-0 py-0 my-10 bg-white">
           <div class="col-1">
-            <img class="logo-default under" src="assets/img/{{assetArray[0].asset}}.svg"  width="auto" height="50px" alt="logo">
-            <img class="logo-default over" src="assets/img/{{assetArray[1].asset}}.svg"  width="auto" height="50px" alt="logo">
+            <img class="logo-default under" src="assets/img/{{tokenArray[0].asset}}.svg"  width="auto" height="50px" alt="logo">
+            <img class="logo-default over" src="assets/img/{{tokenArray[1].asset}}.svg"  width="auto" height="50px" alt="logo">
             <br><br><br>
           </div>
           <div class="col-2 my-0 px-0">
@@ -650,7 +662,7 @@
             </div>
             <div class="row">
               <div class="col">
-                <p class="my-0 py-0" style="font-weight:400">${{ ((poolArray[1].atom * priceAtom) + (poolArray[1].bal * priceBtc * priceAtom)) | number : '1.2'}}</p>
+                <p class="my-0 py-0" style="font-weight:400">${{ ((poolArray[1].atom * dollarArray[0]) + (poolArray[1].bal * priceArray[1] * dollarArray[0])) | number : '1.2'}}</p>
               </div>
             </div>
           </div>
@@ -713,8 +725,8 @@
 
         <div class="row mx-0 py-0 my-10 bg-white">
           <div class="col-1">
-            <img class="logo-default under" src="assets/img/{{assetArray[0].asset}}.svg"  width="auto" height="50px" alt="logo">
-            <img class="logo-default over" src="assets/img/{{assetArray[2].asset}}.svg"  width="auto" height="50px" alt="logo">
+            <img class="logo-default under" src="assets/img/{{tokenArray[0].asset}}.svg"  width="auto" height="50px" alt="logo">
+            <img class="logo-default over" src="assets/img/{{tokenArray[2].asset}}.svg"  width="auto" height="50px" alt="logo">
             <br><br><br>
           </div>
           <div class="col-2 my-0 px-0">
@@ -737,7 +749,7 @@
             </div>
             <div class="row">
               <div class="col">
-                <p class="my-0 py-0" style="font-weight:400">${{ ((poolArray[2].atom * priceAtom) + (poolArray[2].bal * priceEth * priceAtom)) | number : '1.2'}}</p>
+                <p class="my-0 py-0" style="font-weight:400">${{ ((poolArray[2].atom * dollarArray[0]) + (poolArray[2].bal * priceArray[2] * dollarArray[0])) | number : '1.2'}}</p>
               </div>
             </div>
           </div>

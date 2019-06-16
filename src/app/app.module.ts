@@ -23,6 +23,7 @@ import { HomemodalComponent } from "./homemodal/homemodal.component";
 import { WithdrawmodalComponent } from "./withdrawmodal/withdrawmodal.component";
 import { WalletSwitchComponent } from "./walletswitch/walletswitch.component";
 import { QrModalComponent } from "./qr-modal/qr-modal.component";
+import { WalletPaneComponent } from './wallet-pane/wallet-pane.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { QrModalComponent } from "./qr-modal/qr-modal.component";
     HomemodalComponent,
     WithdrawmodalComponent,
     WalletSwitchComponent,
-    QrModalComponent
+    QrModalComponent,
+    WalletPaneComponent
   ],
   imports: [
     BrowserModule,
