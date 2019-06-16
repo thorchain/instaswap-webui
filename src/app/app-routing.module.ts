@@ -24,7 +24,17 @@ const routes: Routes = [
       // canActivate: [AuthGuard]
   },
   {
+      path: 'home/home',
+      component: HomeComponent,
+      // canActivate: [AuthGuard]
+  },
+  {
       path: 'profile',
+      component: ProfileComponent,
+      // canActivate: [AuthGuard]
+  },
+  {
+      path: 'home/profile',
       component: ProfileComponent,
       // canActivate: [AuthGuard]
   },

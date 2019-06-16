@@ -63,6 +63,7 @@ checkMnemonic(phrase): boolean {
   }
 
   setWallet(key): void{
+    this.walletBool = true;
   }
 
   forgetAddress(): void{

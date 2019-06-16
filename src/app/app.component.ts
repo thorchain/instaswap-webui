@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'canyadao';
+  title = 'instaswap';
   // let fs: typeof Fs = window['require']('fs');
 }

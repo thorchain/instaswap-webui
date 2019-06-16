@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/canyadao",
+    "public": "dist/instaswap",
     "ignore": [
       "firebase.json",
       "**/.*",
